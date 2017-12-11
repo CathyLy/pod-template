@@ -3,6 +3,7 @@ require 'xcodeproj'
 module Pod
 
   class ProjectManipulator
+    #可读属性
     attr_reader :configurator, :xcodeproj_path, :platform, :remove_demo_target, :string_replacements, :prefix
 
     def self.perform(options)
@@ -11,6 +12,8 @@ module Pod
 
     def initialize(options)
       @xcodeproj_path = options.fetch(:xcodeproj_path)
+      puts "\n----------------xcodeproj_path--------------"
+      puts "\n#{@xcodeproj_path}?"
       @configurator = options.fetch(:configurator)
       @platform = options.fetch(:platform)
       @remove_demo_target = options.fetch(:remove_demo_project)
