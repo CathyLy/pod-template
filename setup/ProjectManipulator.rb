@@ -14,7 +14,7 @@ module Pod
       @configurator = options.fetch(:configurator)
       @platform = options.fetch(:platform)
       @remove_demo_target = options.fetch(:remove_demo_project)
-      @prefix = "LT"
+      @prefix = prefix
     end
 
     def run
