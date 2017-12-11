@@ -14,7 +14,7 @@ module Pod
       @configurator = options.fetch(:configurator)
       @platform = options.fetch(:platform)
       @remove_demo_target = options.fetch(:remove_demo_project)
-      @prefix = options.fetch(:prefix)
+      @prefix = options.fetch(:"LT")
     end
 
     def run
@@ -101,7 +101,7 @@ RUBY
           before = project_folder + "/PROJECT/" + file
           next unless File.exists? before
 
-          after = project_folder + "/PROJECT/" + file.gsub("CPD", prefix)
+          after = project_folder + "/PROJECT/" + file.gsub("CPD", "LT")
           File.rename before, after
         end
 
