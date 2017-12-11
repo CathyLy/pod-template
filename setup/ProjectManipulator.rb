@@ -11,9 +11,8 @@ module Pod
     end
 
     def initialize(options)
+      #@xcodeproj_path = templates/ios/Example/PROJECT.xcodeproj
       @xcodeproj_path = options.fetch(:xcodeproj_path)
-      puts "\n----------------xcodeproj_path--------------"
-      puts "\n#{@xcodeproj_path}?"
       @configurator = options.fetch(:configurator)
       @platform = options.fetch(:platform)
       @remove_demo_target = options.fetch(:remove_demo_project)
@@ -92,6 +91,8 @@ RUBY
 
     def rename_files
       # shared schemes have project specific names
+      puts "-----------project_folder------------"
+      puts "\n #{project_folder}"
       scheme_path = project_folder + "/PROJECT.xcodeproj/xcshareddata/xcschemes/"
       File.rename(scheme_path + "PROJECT.xcscheme", scheme_path +  @configurator.pod_name + "-Example.xcscheme")
 
